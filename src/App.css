@@ -1,42 +1,50 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-  to {
-    transform: rotate(360deg);
+  
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  
+  label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 10px;
   }
-}
+  
+  .address {
+    margin-top: 10px;
+  }
 
-.card {
-  padding: 2em;
-}
+  /* Styles pour les boutons de navigation */
+  .view-employees-btn,
+  .home-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 10px 0;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
 
-.read-the-docs {
-  color: #888;
-}
+  .view-employees-btn:hover,
+  .home-btn:hover {
+    background-color: #0056b3;
+  }
+
+  .view-employees-btn:focus,
+  .home-btn:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+  }
