@@ -1,4 +1,5 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
+import { mockEmployees } from "../../data/mock";
 import type { Employee } from "../../types/Employee";
 
 type EmployeeState = {
@@ -6,7 +7,7 @@ type EmployeeState = {
 };
 
 const initialState: EmployeeState = {
-  employees: [],
+  employees: mockEmployees,
 };
 
 const employeeSlice = createSlice({
