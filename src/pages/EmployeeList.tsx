@@ -3,6 +3,9 @@ import { useAppSelector } from "../hooks/reduxHooks";
 import { DataTable } from "../components/DataTable";
 import type { ColumnDef } from "@tanstack/react-table";
 import type { Employee } from "../types/Employee";
+import { format } from "date-fns";
+import { states } from "../data/states";
+import "../App.css";
 
 
 const columns: ColumnDef<Employee>[] = [
@@ -17,6 +20,12 @@ const columns: ColumnDef<Employee>[] = [
   {
     accessorKey: "startDate",
     header: "Start Date",
+    cell: info => {
+      const value = info.getValue();
+      if (!value || typeof value !== 'string') return '';
+      const date = new Date(value);
+      return format(date, "yyyy/MM/dd");
+    }
   },
   {
     accessorKey: "department",
@@ -25,6 +34,12 @@ const columns: ColumnDef<Employee>[] = [
   {
     accessorKey: "dateOfBirth",
     header: "Date of Birth",
+    cell: info => {
+      const value = info.getValue();
+      if (!value || typeof value !== 'string') return '';
+      const date = new Date(value);
+      return format(date, "yyyy/MM/dd");
+    }
   },
   {
     accessorKey: "street",
@@ -37,6 +52,11 @@ const columns: ColumnDef<Employee>[] = [
   {
     accessorKey: "state",
     header: "State",
+    cell: info => {
+      const abbr = info.getValue();
+      const stateObj = states.find(s => s.abbreviation === abbr);
+      return stateObj ? stateObj.name : abbr;
+    }
   },
   {
     accessorKey: "zipCode",
@@ -52,8 +72,9 @@ export const EmployeeList = () => {
   return (
     <>
       <h1 className="title">HRnet</h1>
-      <button onClick={() => navigate("/")}>Home</button>
-      
+      <div className="button-container">
+        <button onClick={() => navigate("/")}>Home</button>
+      </div>
       <DataTable  
         data={employees}
         columns={columns}
