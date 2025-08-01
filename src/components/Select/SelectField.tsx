@@ -40,7 +40,7 @@ export const SelectField: React.FC<SelectFieldProps> = ({
             ...provided,
             border: "1px solid #ccc",
             width: "100%",
-            borderRadius: 0,
+            borderRadius: "4px",
             boxShadow: "none",
           }),
         }}

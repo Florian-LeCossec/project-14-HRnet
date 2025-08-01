@@ -289,9 +289,11 @@ export const EmployeeForm = () => {
               state.isSubmitted,
             ]}
             children={([canSubmit, isSubmitting, isSubmitted]) => (
-              <button type="submit" disabled={!canSubmit || isSubmitting}>
-                {isSubmitting ? "Saving..." : isSubmitted ? "Saved" : "Save"}
-              </button>
+              <div className="form-footer">
+                <button className="button-submit" type="submit" disabled={!canSubmit || isSubmitting}>
+                  {isSubmitting ? "Saving..." : isSubmitted ? "Saved" : "Save"}
+                </button>
+              </div>
             )}
           />
         </form>

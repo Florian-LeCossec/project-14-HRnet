@@ -35,6 +35,7 @@ label {
 }
 
 .button-container button,
+.button-submit,
 .view-employees-btn,
 .home-btn {
   background-color: #007bff;
@@ -51,11 +52,13 @@ label {
 }
 
 .button-container button:hover,
+.button-submit:hover,
 .view-employees-btn:hover,
 .home-btn:hover {
   background-color: #0056b3;
 }
 .button-container button:focus,
+.button-submit:focus,
 .view-employees-btn:focus,
 .home-btn:focus {
   outline: 2px solid #007bff;
@@ -101,4 +104,9 @@ label {
   justify-content: center;
   align-items: center;
   margin-bottom: 1rem;
+}
+
+.form-footer {
+  display: flex;
+  justify-content: center;
 }
