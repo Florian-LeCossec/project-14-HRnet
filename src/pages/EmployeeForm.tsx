@@ -9,10 +9,13 @@ import { Datepicker } from "../components/Datepicker";
 import type { Employee } from "../types/Employee";
 import "../App.css";
 import { format } from "date-fns";
+import { Modal } from "@flcossec/react-modal";
+import { useState } from "react";
 
 export const EmployeeForm = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const form = useForm({
     defaultValues: {
@@ -25,21 +28,36 @@ export const EmployeeForm = () => {
       state: "",
       zipCode: "",
       department: "",
-    } as Omit<Employee, "dateOfBirth" | "startDate"> & { dateOfBirth: Date | null, startDate: Date | null },
+    } as Omit<Employee, "dateOfBirth" | "startDate"> & {
+      dateOfBirth: Date | null;
+      startDate: Date | null;
+    },
     onSubmit: ({ value }) => {
       dispatch(
         addEmployee({
           ...value,
-          dateOfBirth: value.dateOfBirth ? format(value.dateOfBirth, "yyyy-MM-dd") : "",
-          startDate: value.startDate ? format(value.startDate, "yyyy-MM-dd") : "",
+          dateOfBirth: value.dateOfBirth
+            ? format(value.dateOfBirth, "yyyy-MM-dd")
+            : "",
+          startDate: value.startDate
+            ? format(value.startDate, "yyyy-MM-dd")
+            : "",
         })
       );
+      // Ouvrir la modal directement après la soumission réussie
+      setIsModalOpen(true);
     },
   });
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   const handleViewEmployees = () => {
     navigate("/employee-list");
   };
+
+
 
   const stateOptions = states.map((state) => ({
     value: state.abbreviation,
@@ -290,7 +308,11 @@ export const EmployeeForm = () => {
             ]}
             children={([canSubmit, isSubmitting, isSubmitted]) => (
               <div className="form-footer">
-                <button className="button-submit" type="submit" disabled={!canSubmit || isSubmitting}>
+                <button
+                  className="button-submit"
+                  type="submit"
+                  disabled={!canSubmit || isSubmitting}
+                >
                   {isSubmitting ? "Saving..." : isSubmitted ? "Saved" : "Save"}
                 </button>
               </div>
@@ -298,6 +320,33 @@ export const EmployeeForm = () => {
           />
         </form>
       </div>
+      <Modal
+        open={isModalOpen}
+        onClose={handleCloseModal}
+        persistent={true}
+        blur={true}
+        title="Employee Created"
+        body={
+            <p>Employee created successfully</p>
+        }
+        footer={
+          <div style={{ display: 'flex', gap: '10px', justifyContent: 'flex-end' }}>
+            <button
+              onClick={handleCloseModal}
+              style={{
+                padding: '8px 16px',
+                backgroundColor: '#007bff',
+                color: 'white',
+                border: 'none',
+                borderRadius: '4px',
+                cursor: 'pointer',
+              }}
+            >
+              Ok
+            </button>
+          </div>
+        }
+      />
     </>
   );
 };
