@@ -1,54 +1,114 @@
-# React + TypeScript + Vite
+# HRnet
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## �� Description
 
-Currently, two official plugins are available:
+HRnet is a web application for employee management developed with React, TypeScript, and Vite.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Technologies used
 
-## Expanding the ESLint configuration
+- **React 19** with TypeScript
+- **Vite** for build and development
+- **Redux Toolkit** for state management
+- **Material-UI** for the date-picker
+- **React Router** for navigation
+- **TanStack Table** for data display
+- **TanStack Form** for form management
+- **flcossec/react-modal** for the modal
+- **react-select** for the selector
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 📦 Installation
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+1. **Clone the repository**:
+```bash
+git clone [git@github.com:Florian-LeCossec/P14-HR-modal-plugin.git]
+cd HRnet
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+2. **Install dependencies**:
+```bash
+npm install
+# or
+pnpm install
+# or
+yarn install
 ```
+
+## 🏃‍♂️ How to run the application
+
+### Development mode
+```bash
+npm run dev
+# or
+pnpm dev
+# or
+yarn dev
+```
+
+The application will be accessible at: `http://localhost:5173`
+
+### Production mode
+```bash
+# Build the application
+npm run build
+# or
+pnpm build
+
+# Preview the build
+npm run preview
+# or
+pnpm preview
+```
+
+## 📁 Project structure
+
+```
+src/
+├── components/          # Reusable components
+│   ├── DataTable/      # Data table
+│   ├── Datepicker/     # Date picker
+│   └── Select/         # Selection component
+├── data/               # Static data (states, departments)
+├── features/           # Redux slices
+├── hooks/              # Custom hooks
+├── pages/              # Application pages
+│   ├── EmployeeForm.tsx    # Creation form
+│   └── EmployeeList.tsx    # Employee list
+├── types/              # TypeScript types
+└── store.ts            # Redux configuration
+```
+
+## 🎯 Features
+
+### Home page - Employee creation form
+- Personal information input (first name, last name, date of birth)
+- Professional information (start date, department)
+- Complete address (street, city, state, zip code)
+- Real-time field validation
+- Confirmation modal after creation
+
+### Employee list page
+- Tabular display of all employees
+- Column sorting
+- Navigation to creation form
+- Locally persisted data (Redux)
+
+## 🛠️ Available scripts
+
+- `npm run dev` : Start development server
+- `npm run build` : Build application for production
+- `npm run preview` : Preview production build
+- `npm run lint` : Check code with ESLint
+
+## 🔧 Configuration
+
+The application uses:
+- **TypeScript** for static typing
+- **ESLint** for code quality
+- **Vite** for fast development
+- **Material-UI** for the date picker design
+
+## 📝 Notes
+
+- Data is stored locally via Redux (no persistent database)
+- The application is responsive and mobile-optimized
+- All components are typed with TypeScript
