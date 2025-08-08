@@ -4,7 +4,6 @@ import { EmployeeList } from "./pages/EmployeeList";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { enUS } from 'date-fns/locale';
-import "./App.css";
 
 function App() {
   return (
