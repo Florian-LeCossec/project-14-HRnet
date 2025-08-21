@@ -156,6 +156,7 @@ export const EmployeeForm = () => {
                 <div className="form-group">
                   <label htmlFor="dateOfBirth">Date of Birth</label>
                   <Datepicker
+                    className="date-picker"
                     value={field.state.value ?? null}
                     onChange={field.handleChange}
                   />
@@ -177,6 +178,7 @@ export const EmployeeForm = () => {
                 <div className="form-group">
                   <label htmlFor="startDate">Start Date</label>
                   <Datepicker
+                    className="date-picker"
                     value={field.state.value ?? null}
                     onChange={field.handleChange}
                   />

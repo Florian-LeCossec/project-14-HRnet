@@ -89,11 +89,15 @@ label {
 
 .date-group {
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: flex-start;
 }
+
+.date-picker {
+  width: 100%;
+}
+
 
 .form-select {
   width: 100% !important;
