@@ -110,5 +110,4 @@ The application uses:
 ## 📝 Notes
 
 - Data is stored locally via Redux (no persistent database)
-- The application is responsive and mobile-optimized
 - All components are typed with TypeScript
