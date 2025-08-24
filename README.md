@@ -106,6 +106,7 @@ The application uses:
 - **ESLint** for code quality
 - **Vite** for fast development
 - **Material-UI** for the date picker design
+- **Tanstack** for the form and the data-table
 
 ## 📝 Notes
 
